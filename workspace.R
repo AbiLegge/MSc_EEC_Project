@@ -105,7 +105,7 @@ for(i in 1:length(dataset_names)) {
 
 
 ###############################################################################
-#2. add native / introduced using WCVP
+#2. add native / introduced using WCVP - downloaded from https://powo.science.kew.org/about-wcvp
 #will remove non plants too
 
 #world checklist of vascular plants distribution data
@@ -636,7 +636,7 @@ print(overview_p1)
 overview_groups <- ggplot(plot_level_long, aes(x = group, y = value, fill = Site)) +
   geom_boxplot(position = position_dodge(width = 0.75), outlier.shape = NA) +
   facet_wrap(~ metric, scales = "free_y", ncol = 2) +
-  labs(x = "Site", y = NULL) +
+  labs(x = "Group", y = NULL) +
   theme_minimal() +
   theme(
     axis.text.x = element_text(angle = 45, hjust = 1),
@@ -753,7 +753,7 @@ plot(fit, res,
      ylab = "Residuals")
 abline(h = 0, col = "red")
 
-# Q-Q
+#Q-Q
 qqnorm(res)
 qqline(res, col = "red")
 
@@ -770,7 +770,7 @@ sim_residuals <- simulateResiduals(m2_native)
 #qq plot
 plot(sim_residuals)  
 
-# overdispersion
+#overdispersion
 testDispersion(sim_residuals)
 
 #residuals by group
@@ -789,11 +789,11 @@ plot(fit, res,
      ylab = "Residuals")
 abline(h = 0, col = "red")
 
-# 2. Normal Q-Q
+#Q-Q
 qqnorm(res)
 qqline(res, col = "red")
 
-# 3. Scale-Location
+#Scale-Location
 plot(fit, sqrt(abs(res)),
      main = "Scale-Location",
      xlab = "Fitted values",
@@ -801,13 +801,13 @@ plot(fit, sqrt(abs(res)),
 abline(h = 0, col = "red")
 
 #feve
-# 1. Residuals vs Fitted
+# Residuals vs Fitted
 par(mfrow = c(2, 2))
 sim_residuals <- simulateResiduals(m2_feve)
 #qq plot
 plot(sim_residuals)  
 
-# overdispersion
+#overdispersion
 testDispersion(sim_residuals)
 
 #residuals by group
